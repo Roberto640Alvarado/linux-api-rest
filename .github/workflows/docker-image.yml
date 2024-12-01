@@ -1,4 +1,4 @@
-name: CI/CD for API REST
+name: CI/CD for API REST1
 
 on:
   push:
