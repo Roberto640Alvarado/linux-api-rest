@@ -47,7 +47,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/api-rest:latest
+          tags: ralvarado0505/api-rest:latest
 
   deploy_to_ec2:
     name: Deploy to AWS EC2
@@ -61,7 +61,7 @@ jobs:
           username: ec2-user
           key: ${{ secrets.AWS_PRIVATE_KEY }}
           script: |
-            docker pull ${{ secrets.DOCKER_USERNAME }}/api-rest:latest
+            docker pull ralvarado0505/api-rest:latest
             docker stop api || true
             docker rm api || true
-            docker run -d --name api -p 8080:8080 ${{ secrets.DOCKER_USERNAME }}/api-rest:latest
+            docker run -d --name api -p 8080:8080 ralvarado0505/api-rest:latest
